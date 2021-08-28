@@ -1,12 +1,13 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import './menu-item.styles.scss'
 
-const MenuItem = ({ title, imageUrl, size }) => (
-  <div className={`menu-item ${size}`}>
+const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
+  <div className={`menu-item ${size}`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
     <div
       className="background-image"
       style={{
-        backgroundImage: `url(${imageUrl})`,
+        backgroundImage: `url(${imageUrl})`
       }}
     />
     <div className="content">
@@ -16,4 +17,5 @@ const MenuItem = ({ title, imageUrl, size }) => (
   </div>
 )
 
-export default MenuItem
+// withRouter is a higher order component - returns a powered up MenuItem component with access to Router props like history, location, match
+export default withRouter(MenuItem)
