@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import { onSnapshot } from 'firebase/firestore'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
@@ -17,7 +16,7 @@ import { selectCurrentUser } from './redux/user/user.selectors'
 import { checkUserSession } from './redux/user/user.actions'
 
 class App extends React.Component {
-  // unsubscribeFromAuth = null
+  unsubscribeFromAuth = null
 
   componentDidMount() {
     const { checkUserSession } = this.props
