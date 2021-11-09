@@ -72,9 +72,21 @@ export const convertCollectionsSnapshotToMap = (Collections) => {
   }, {})
 }
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
+      unsubscribe()
+      resolve(userAuth)
+    }, reject)
+  })
+}
+
 export const auth = getAuth()
+
 export const googleProvider = new GoogleAuthProvider()
+
 googleProvider.setCustomParameters({ prompt: 'select_account' })
+
 export const signInWithGoogle = () => signInWithPopup(auth, googleProvider)
 
 export default firebase
