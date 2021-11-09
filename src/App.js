@@ -21,26 +21,6 @@ class App extends React.Component {
   componentDidMount() {
     const { checkUserSession } = this.props
     checkUserSession()
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-    //   // check if user is signing in
-    //   if (userAuth) {
-    //     // obtain userRef from firestore db (if already exists) or create new user and return the new userRef
-    //     const userRef = await createUserProfileDocument(userAuth)
-    //     // subscribe (listen) for any changes to the userRef data. also get back first state of that data (snapshot)
-    //     onSnapshot(userRef, (snapshot) => {
-    //       // update currentUser in redux store
-    //       setCurrentUser({
-    //         currentUser: {
-    //           id: snapshot.id,
-    //           ...snapshot.data()
-    //         }
-    //       })
-    //     })
-    //   } else {
-    //     // if user logs out set currentUser back to null - userAuth will be null
-    //     setCurrentUser(userAuth)
-    //   }
-    // })
   }
 
   componentWillUnmount() {
