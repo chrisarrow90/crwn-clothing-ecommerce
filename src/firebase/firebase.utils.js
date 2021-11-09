@@ -73,8 +73,8 @@ export const convertCollectionsSnapshotToMap = (Collections) => {
 }
 
 export const auth = getAuth()
-export const provider = new GoogleAuthProvider()
-provider.setCustomParameters({ prompt: 'select_account' })
-export const signInWithGoogle = () => signInWithPopup(auth, provider)
+export const googleProvider = new GoogleAuthProvider()
+googleProvider.setCustomParameters({ prompt: 'select_account' })
+export const signInWithGoogle = () => signInWithPopup(auth, googleProvider)
 
 export default firebase
